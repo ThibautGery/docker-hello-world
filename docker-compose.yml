@@ -1,0 +1,11 @@
+app:
+ build: .
+ container_name: ourAppRunning
+ ports:
+   - 4000:3004
+ links:
+   - db:myDb
+
+db:
+ image: mongo
+ container_name: ourDbRunning
