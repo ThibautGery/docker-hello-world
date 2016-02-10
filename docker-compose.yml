@@ -2,15 +2,17 @@ version: '2'
 services:
   app:
     build: .
-    container_name: ourAppRunning
+    container_name: ourRunningApp
     ports:
      - 4000:3004
+    environment:
+      DB_HOST: ourRunningDb
     networks:
      - myNetwork
 
   db:
     image: mongo
-    container_name: ourDbRunning
+    container_name: ourRunningDb
     networks:
       - myNetwork
 networks:

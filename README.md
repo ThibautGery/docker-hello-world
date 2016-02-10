@@ -9,14 +9,20 @@ Docker
 ------
 
 The commands :
- * run `docker build --tag myNodeApp .` to build the application
+ * run `docker build --tag mynodeapp .` to build the application
  * run `docker images` to see all the images
- * run `docker run -p 4000:3004 --name myAppRunning myNodeApp` to start a new
+ * run `docker network create myNetwork` to create the custom network
+ * run `docker run --net=myNetwork --name ourRunningDb mongo` to start a new
+ container
+ * run `docker run --net=myNetwork -p 4000:3004 -e DB_HOST=ourRunningDb --name ourRunningApp mynodeapp` to start a new
  container
  * run `docker ps` to see all the running containers
- * run `docker rm -f ourAppRunning` to stop and delete the container
- * run `docker exec -it ourAppRunning bash` to start a bash session in the
+ * run `docker rm -f ourRunningApp` to stop and delete the container
+ * run `docker exec -it ourRunningApp bash` to start a bash session in the
  container
+ * run `docker exec -it ourRunningApp ping -c 4 ourRunningDb` to start a bash session in the
+ container
+ 
 
 
 Docker-compose
