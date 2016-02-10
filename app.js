@@ -2,7 +2,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 
-var uri = 'mongodb://myDb:27017/mongoose-shared-connection';
+var uri = 'mongodb://ourDbRunning:27017/mongoose-shared-connection';
 global.db = mongoose.createConnection(uri);
 
 var routes = require('./routes');

@@ -1,11 +1,18 @@
-app:
- build: .
- container_name: ourAppRunning
- ports:
-   - 4000:3004
- links:
-   - db:myDb
+version: '2'
+services:
+  app:
+    build: .
+    container_name: ourAppRunning
+    ports:
+     - 4000:3004
+    networks:
+     - myNetwork
 
-db:
- image: mongo
- container_name: ourDbRunning
+  db:
+    image: mongo
+    container_name: ourDbRunning
+    networks:
+      - myNetwork
+networks:
+  myNetwork:
+    driver: bridge
